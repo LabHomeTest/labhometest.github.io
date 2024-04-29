@@ -1,14 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Team</title>
-</head>
-<body>
-<a href="index.html">Index</a>
-<a href="Published.html">Published</a>
-<a href="Projects.html">Projects</a>
-<a href="Team.html">Team</a>
-<h3>Team</h3>
-</body>
+    <head>
+        <meta charset="UTF-8">
+            <title>QIYI博士团队</title>
+        <link rel="stylesheet" href="static/css/index.css">
+        <style>
+            #teamImage .photo{
+                height: 300px;
+                width: 100%;
+                object-fit: cover;
+                z-index: -1;
+                margin: 0 10px;
+            }
+            .numberCard{
+                width: 30%;
+                min-width: 300px;
+                height: 250px;
+                align-content: center;
+                margin:0 10px 20px 10px;
+                float: left;
+                box-shadow: 2px 2px 5px 0px rgb(188 188 188 / 50%);
+                display: grid;
+                grid-template-columns: 30% 1fr;
+                align-items: center;
+            }
+            .cardsContent{
+                display: flow-root;
+            }
+            .numPhoto{
+                width:100px;
+                border-radius: 50%;
+                padding: 10px;
+                object-fit: cover;
+                height: 100px;
+            }
+            .infBox{
+                padding-left: 30px;
+                padding-right: 20px;
+            }
+            .infBox > div {
+                margin-top: 5px;
+            }
+            .infBox > div:first-child {
+                font-weight: bolder;
+            }
+            .infBox > :nth-child(4) {
+                word-break: break-all;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+            }
+        </style>
+        <script src="static/js/vue.global.js"></script>
+        <script src="static/js/jquery-3.6.0.min.js"></script>
+        <script src="static/js/navbar.js"></script>
+    </head>
+    <body>
+        <div id="navbar-container" class="nav"></div>
+        <!-- 用vue循环展示卡片 -->
+        <div id="app" class="container">
+            <div id="teamImage">
+                <h3>Team</h3>
+                <img src="static/images/Q He.png" class="photo">
+            </div>
+            <div>
+                <!-- 博士生、硕士生、本科生 团队成员展示 -->
+                <div class="cardsContent"  v-for="pitem of teamNumber">
+                    <h3>Ph.D. Students</h3>
+                    <div v-for="item of pitem.numbers" class="numberCard">
+                        <div style="display: inline-block;">
+                            <img :src="'static/images/' + item.image" class="numPhoto">
+                        </div>
+                        <div class="infBox">
+                            <div>{{ item.name }} </div>
+                            <div>{{ item.joinDate }} </div>
+                            <div>{{ item.email }} </div>
+                            <div :title="item.award">{{ item.award }} </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div>
+                    <h3>Graduated and Mentored</h3>
+                    <div v-for="item of graduated" >
+                        <ul>
+                            <li>{{ item.info }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <script>
+            const { createApp } = Vue
+            
+            createApp({
+                data() {
+                    return {
+                        message: 'Hello Vue!',
+                        teamNumber:[{
+                            group:"h.D. Students",
+                            numbers:[{
+                                name:"何其祎",
+                                image:'Q He.png',
+                                joinDate:"2022.06.30",
+                                email:"1238907906@163.com",
+                                award:"daniuwangjiang"
+                            },{
+                                name:"张婷婷",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2024.09.01",
+                                email:"1238907906@163.com",
+                                award:"xiaoniuwangjiang"
+                            }]
+                        },{
+                            group:"Master Students",
+                            numbers:[{
+                                name:"何其祎",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2022.06.30",
+                                email:"1238907906@163.com",
+                                award:"daniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiangdanangdaniuwangjiangdaniuwangjiangdaniuwangjiangdanangdaniuwangjiangdaniuwangjiangdaniuwangjiangdanangdaniuwangjiangdaniuwangjiangdaniuwangjiangdanangdaniuwangjiangdaniuwangjiangdaniuwangjiangdanangdaniuwangjiangdaniuwangjiangdaniuwangjiangdanangdaniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiangdaniuwangjiang"
+                            },{
+                                name:"张婷婷",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2024.09.01",
+                                email:"1238907906@163.com",
+                                award:"xiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiangxiaoniuwangjiang"
+                            },{
+                                name:"Doctor Who",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2024.09.01",
+                                email:"1238907906@163.com",
+                                award:"meiyoujiang"
+                            }]
+                        },{
+                            group:"Undergraduate Students",
+                            numbers:[{
+                                name:"何其祎",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2022.06.30",
+                                email:"1238907906@163.com",
+                                award:"daniuwangjiang"
+                            },{
+                                name:"张婷婷",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2024.09.01",
+                                email:"1238907906@163.com",
+                                award:"xiaoniuwangjiang"
+                            },{
+                                name:"Doctor Who",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2024.09.01",
+                                email:"1238907906@163.com",
+                                award:"meiyoujiang"
+                            },{
+                                name:"Doctor Who",
+                                image:'zyf_imf_test.jpg',
+                                joinDate:"2024.09.01",
+                                email:"1238907906@163.com",
+                                award:"meiyoujiang"
+                            }]
+                        }],
+                        graduated:[{
+                            info:"11213124234234"
+                        },{
+                            info:"hdgakjsdlkshdlfjdhs"
+                        }]
+                    }
+                }
+            }).mount('#app')
+        </script>
+    </body>
 </html>

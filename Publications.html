@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Published</title> 
+    <link rel="stylesheet" href="static/css/index.css">
+    <style>
+        #timeline {
+            position: relative;
+            padding: 20px;
+        }
+        
+        .time-label {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .year {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .time-point {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: #999;
+            border-radius: 50%;
+            margin-top: 7px;
+        }
+        
+        .timeline-content {
+            margin-left: 20px;
+        }
+        
+        .timeline-content h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .timeline-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+    <script src="static/js/jquery-3.6.0.min.js"></script>
+    <script src="static/js/navbar.js"></script>
+    <script src="static/js/vue.global.js"></script>
+</head>
+<body>
+    <div id="navbar-container" class="nav"></div>
+    <div id="app"  class="publishedContent container">
+        <div id="timeline">
+            <div class="timeline-item" v-for="item of publications">
+                <div class="time-point"></div>
+                <div class="timeline-content">
+                    <h2>{{ item.year }}</h2>
+                    <div v-for = "citem of item.papers" style="margin-bottom: 20px;" >
+                        <p style="font-weight: bolder;color: #333;">{{ citem.name }}</p>
+                        <p>{{ citem.author }}</p>
+                        <p style="font-style: italic;">{{ citem.unit }}</p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    publications: [{
+                        year:2023,
+                        papers:[{
+                            name:"A Clone Selection Algorithm Optimized Support Vector Machine for AETA Geoacoustic Anomaly Detection",
+                            author:"Q He, H Wang, C Li, W Zhou, Z Ye, L Hong, X Yu, S Yu, L Peng",
+                            unit:"Electronics 12 (23), 4847"
+                        },{
+                            name:"Association Rule Mining through Combining Hybrid Water Wave Optimization Algorithm with Levy Flight",
+                            author:"Q He, J Tu, Z Ye, M Wang, Y Cao, X Zhou, W Bai",
+                            unit:"Mathematics 11 (5), 1195"
+                        },{
+                            name:"Object detection based on lightweight YOLOX for autonomous driving",
+                            author:"Q He, A Xu, Z Ye, W Zhou, T Cai",
+                            unit:"Sensors 23 (17), 7596"
+                        },{
+                            name:"An ensemble framework with improved hybrid breeding optimization-based feature selection for intrusion detection",
+                            author:"Z Ye, J Luo, W Zhou, M Wang, Q He",
+                            unit:"Future Generation Computer Systems"
+                        }]
+                    },{
+                        year:2022,
+                        papers:[{
+                            name:"Discrete Missing Data Imputation Using Multilayer Perceptron and Momentum Gradient Descent",
+                            author:"H Pan, Z Ye, Q He, C Yan, J Yuan, X Lai, J Su, R Li",
+                            unit:"Sensors 22 (15), 5645"
+                        },{
+                            name:"Feature Selection Based on Adaptive Particle Swarm Optimization with Leadership Learning",
+                            author:"Z Ye, Y Xu, Q He, M Wang, W Bai, H Xiao",
+                            unit:"Computational Intelligence and Neuroscience 2022"
+                        }]
+                    },{
+                        year:2021,
+                        papers:[{
+                            name:"Bridge monitoring using multi-GNSS observations with high cutoff elevations: A case study",
+                            author:"R Xi, Q He, X Meng",
+                            unit:"Measurement 168, 108303"
+                        },{
+                            name:"A machine learning-based anomaly detection framework for connected and autonomous vehicles cyber security",
+                            author:"Q He",
+                            unit:"University of Nottingham"
+                        }]
+                    },{
+                        year:2020,
+                        papers:[{
+                            name:"Machine learning-based detection for cyber security attacks on connected and autonomous vehicles",
+                            author:"Q He, X Meng, R Qu, R Xi",
+                            unit:"Mathematics 8 (8), 1311"
+                        },{
+                            name:"Towards a severity assessment method for potential cyber attacks to connected and autonomous vehicles",
+                            author:"Q He, X Meng, R Qu",
+                            unit:"Journal of advanced transportation 2020, 1-15"
+                        }]
+                    }],
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
