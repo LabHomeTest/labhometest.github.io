@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // 取消默认行为
             event.preventDefault();
 
-            $(".navbar li a").removeClass("active");
-            $(this).addClass("active");
+            //$(".navbar li a").removeClass("active");
+            //$(this).addClass("active");
             // 移除当前选中样式
             // var selectedNavItem = navbarContainer.querySelector('.active');
             // if (selectedNavItem) {
