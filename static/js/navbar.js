@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var curHrefList = window.location.href.split('/');
 
     //导航栏
-    var navs = ["Index", "Publications", "Projects", "Team"];
+    var navs = ["index", "Publications", "Projects", "Team"];
     // 定位到头部导航栏容器
     var navbarContainer = document.getElementById('navbar-container');
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var myHtml = ' <ul class="navbar">';
     for(var i = 0;i<navs.length;i++){
         var pageName = navs[i];
-        if(navs[i] == "Index"){
+        if(navs[i] == "index"){
             pageName = "Home";
         }
         if(curHrefList[curHrefList.length-1] == navs[i]+'.html'){
