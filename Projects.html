@@ -6,11 +6,117 @@
     <link rel="stylesheet" href="static/css/index.css">
     <script src="static/js/jquery-3.6.0.min.js"></script>
     <script src="static/js/navbar.js"></script>
+    <script src="static/js/vue.global.js"></script>
+    <style>
+        .projectContent{
+            padding-top: 20px;
+        }
+        .partContent{
+            margin-bottom: 50px;
+        }
+        .projectItem{
+            padding: 0 20px;
+        }
+        .projectName{
+            font-weight: bolder;
+            font-size: large;
+            padding-right: 15px;
+        }
+        .link{
+            color:#428bca;
+            text-decoration: none;
+            outline: none;
+        }
+        .link:hover{
+            text-decoration:underline;
+        }
+    </style>
 </head>
 <body>
     <div id="navbar-container" class="nav"></div>
-        <div class="projectContent container">
-            <h3>Projects</h3>
+    <div id="app" class="projectContent container">
+        <div class="partContent">
+            <h2>Software Packages</h2>
+            <div class="projectItem">
+                <div v-for="item of software" >
+                    <span class="projectName">{{ item.name }}</span><a v-if="item.link" :href="item.link" class="link">Code</a>
+                    <ul v-for="citem of item.info" >
+                        <li>{{ citem }}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <div class="partContent">
+            <h2>Research Fundings</h2>
+            <div class="projectItem">
+                <div v-for="item of research" >
+                    <div>{{ item.name }}</div>
+                    <ul v-for="citem of item.info" >
+                        <li>{{ citem }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    software:[{
+                        name:"Project1",
+                        link:'https://github.com/LabHomeTest/labhometest.github.io',
+                        info:[
+                            "Project1info1",
+                            "Project1info2",
+                            "Project1info3",
+                        ]
+                    },{
+                        name:"Project2",
+                        link:'',
+                        info:[
+                            "Project1info1",
+                            "Project1info2",
+                            "Project1info3",
+                        ]
+                    },{
+                        name:"Project3",
+                        link:'',
+                        info:[
+                            "Project1info1",
+                            "Project1info2",
+                            "Project1info3",
+                        ]
+                    }],
+                    research:[{
+                        name:"Project1",
+                        link:'',
+                        info:[
+                            "Project1info1",
+                            "Project1info2",
+                            "Project1info3",
+                        ]
+                    },{
+                        name:"Project2",
+                        link:'',
+                        info:[
+                            "Project1info1",
+                            "Project1info2",
+                            "Project1info3",
+                        ]
+                    },{
+                        name:"Project3",
+                        link:'',
+                        info:[
+                            "Project1info1",
+                            "Project1info2",
+                            "Project1info3",
+                        ]
+                    }],
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 </html>
