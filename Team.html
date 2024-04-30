@@ -61,13 +61,13 @@
         <!-- 用vue循环展示卡片 -->
         <div id="app" class="container">
             <div id="teamImage">
-                <h3>Team</h3>
+                <h3 style="padding-top: 20px;">Team</h3>
                 <img src="static/images/Q He.png" class="photo">
             </div>
             <div>
                 <!-- 博士生、硕士生、本科生 团队成员展示 -->
                 <div class="cardsContent"  v-for="pitem of teamNumber">
-                    <h3>Ph.D. Students</h3>
+                    <h3>{{ pitem.group }}</h3>
                     <div v-for="item of pitem.numbers" class="numberCard">
                         <div style="display: inline-block;">
                             <img :src="'static/images/' + item.image" class="numPhoto">
@@ -103,7 +103,7 @@
                     return {
                         message: 'Hello Vue!',
                         teamNumber:[{
-                            group:"h.D. Students",
+                            group:"Ph.D. Students",
                             numbers:[{
                                 name:"何其祎",
                                 image:'Q He.png',
