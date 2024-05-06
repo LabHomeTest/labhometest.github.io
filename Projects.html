@@ -50,7 +50,7 @@
             <h2>Research Fundings</h2>
             <div class="projectItem">
                 <div v-for="item of research" >
-                    <div>{{ item.name }}</div>
+                    <div class="projectName">{{ item.name }}</div>
                     <ul v-for="citem of item.info" >
                         <li>{{ citem }}</li>
                     </ul>
